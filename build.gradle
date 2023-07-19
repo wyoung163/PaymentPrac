@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.14-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.payment'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+	maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'android.arch.persistence.room:runtime:1.1.1'
+	annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'com.github.iamport:iamport-rest-client-java:0.2.21'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
