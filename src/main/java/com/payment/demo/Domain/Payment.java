@@ -1,7 +1,10 @@
 package com.payment.demo.Domain;
 
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 /**
@@ -20,6 +23,8 @@ import javax.persistence.*;
  */
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 @Table(name = "Payment")
 public class Payment {
     @Id

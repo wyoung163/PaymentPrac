@@ -1,7 +1,7 @@
 package com.payment.demo.Domain;
 
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import javax.persistence.*;
 
 /**
@@ -12,8 +12,12 @@ import javax.persistence.*;
  * 가격
  *
  */
-@NoArgsConstructor
+@Builder
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "User")
 public class Commodity {
     @Id
@@ -21,11 +25,8 @@ public class Commodity {
     public long commodityId;
 
     @Column(nullable = false)
-    private int price;
+    private String name;
 
-    @Builder
-    public Commodity(long commodityId, int price) {
-        this.commodityId = commodityId;
-        this.price = price;
-    }
+    @Column(nullable = false)
+    private int price;
 }
